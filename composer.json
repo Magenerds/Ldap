@@ -1,0 +1,26 @@
+{
+  "name": "m2hackathon/ldap",
+  "description": "LDAP auth for Magento 2 backend login",
+  "type": "magento2-module",
+  "version": "0.1.0",
+  "require": {
+    "php": "~5.6.0|7.0.2|~7.0.6",
+    "ext-ldap": "*"
+  },
+  "suggest": {
+    "magento/module-backend": "100.1.*",
+    "magento/module-user": "100.1.*",
+    "zendframework/zend-ldap": "*"
+  },
+  "license": [
+    "OSL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magenerds\\Ldap\\": ""
+    }
+  }
+}

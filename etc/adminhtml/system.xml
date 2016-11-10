@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+ ~ NOTICE OF LICENSE
+ ~
+ ~ This source file is subject to the Open Software License (OSL 3.0)
+ ~ that is available through the world-wide-web at this URL:
+ ~ http://opensource.org/licenses/osl-3.0.php
+ ~
+ ~ @category   Magenerds
+ ~ @package    Magenerds_Ldap
+ ~ @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ ~ @version    ${release.version}
+ ~ @link       http://www.techdivision.com/
+ ~ @link       https://github.com/Magenerds/Ldap
+ ~ @author     Julian Schlarb <j.schlarb@techdivision.com>
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="magenerds_ldap" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0"
+                 showInStore="0">
+            <label>Ldap</label>
+            <tab>advanced</tab>
+            <resource>Magenerds_Ldap::config</resource>
+            <group id="server" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0" canRestore="0">
+                <label>Server</label>
+                <field id="host" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0"
+                       showInStore="0" canRestore="0">
+                    <label>Host</label>
+                </field>
+                <field id="port" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0"
+                       showInStore="0" canRestore="0">
+                    <label>Port</label>
+                </field>
+                <field id="use_tls" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Use TLS</label>
+                    <comment>
+                        <![CDATA[For the sake of security, this should be `yes` if the server has the necessary certificate installed.]]>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="use_ssl" translate="label comment" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Use SSL</label>
+                    <comment>
+                        <![CDATA[Possibly used as an alternative to useStartTls (see above).]]>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="bind_requires_dn" translate="label comment" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Bind requires dn</label>
+                    <comment>
+                        <![CDATA[Required and must be `yes`, as OpenLDAP requires that usernames be in DN form when performing a bind.]]>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="base_dn" translate="label comment" type="text" sortOrder="70" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Base dn</label>
+                    <comment>
+                        <![CDATA[As with all servers, this option is required and indicates the DN under which all accounts being authenticated are located.]]>
+                    </comment>
+                </field>
+                <field id="bind_dn" translate="label comment" type="text" sortOrder="80" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Bind dn</label>
+                    <comment>
+                        <![CDATA[Required and must be a DN, as OpenLDAP requires that usernames be in DN form when performing a bind. Try to use an unprivileged account.]]>
+                    </comment>
+                </field>
+                <field id="bind_password" translate="label comment" type="password" sortOrder="90" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Bind password</label>
+                    <comment>
+                        <![CDATA[The password corresponding to the username above, but this may be omitted if the LDAP server permits an anonymous binding to query user accounts.]]>
+                    </comment>
+                </field>
+                <field id="allow_empty_password" translate="label" type="select" sortOrder="100" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Allow empty password</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="role" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="0"
+                       showInStore="0" canRestore="1">
+                    <label>Default Role</label>
+                    <source_model>Magenerds\Ldap\Model\Config\Role</source_model>
+                </field>
+                <field id="user_filter" translate="label" type="text" sortOrder="120" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>User filter</label>
+                </field>
+                <field id="cache_password" translate="label comment" type="select" sortOrder="120" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Cache user passwords</label>
+                    <comment>
+                        <![CDATA[To save the user password in the Magento database. Then, users will be able to log in even when the LDAP server is not reachable.]]>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="attribute" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0"
+                   showInStore="0" canRestore="0">
+                <label>Attribute mapping</label>
+                <field id="username" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Username</label>
+                    <comment>
+                        <![CDATA[Attribute in LDAP defining the user’s username.]]>
+                    </comment>
+                </field>
+                <field id="first_name" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>First Name</label>
+                    <comment>
+                        <![CDATA[Attribute in LDAP defining the user’s first name.]]>
+                    </comment>
+                </field>
+                <field id="last_name" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Last Name</label>
+                    <comment>
+                        <![CDATA[Attribute in LDAP defining the user’s last name.]]>
+                    </comment>
+                </field>
+                <field id="email" translate="label comment" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Email</label>
+                    <comment>
+                        <![CDATA[Attribute in LDAP defining the user’s email.]]>
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
