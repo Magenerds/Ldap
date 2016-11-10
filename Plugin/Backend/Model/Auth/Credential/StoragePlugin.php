@@ -68,6 +68,7 @@ final class StoragePlugin
 
     /**
      * StoragePlugin constructor.
+     *
      * @param LoggerInterface $logger
      * @param LdapClientInterface $ldapClient
      * @param UserMapper $userMapper

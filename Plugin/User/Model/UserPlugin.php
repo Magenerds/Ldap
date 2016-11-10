@@ -24,6 +24,7 @@ use Magento\User\Model\User;
 
 /**
  * Class UserPlugin
+ *
  * @package Magenerds\Ldap\Plugin\User\Model
  */
 final class UserPlugin
@@ -33,7 +34,6 @@ final class UserPlugin
      *
      * @param User $subject
      * @param Closure $proceed
-     *
      * @return User
      */
     public function aroundValidateBeforeSave(User $subject, Closure $proceed)

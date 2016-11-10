@@ -27,6 +27,7 @@ use Magento\Framework\Setup\SchemaSetupInterface;
 
 /**
  * Class InstallSchema
+ *
  * @package Magenerds\Ldap\Setup
  */
 class InstallSchema implements InstallSchemaInterface

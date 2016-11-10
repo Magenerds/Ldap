@@ -28,6 +28,7 @@ use Zend_Ldap_Exception;
 
 /**
  * Class LdapClient
+ *
  * @package Magenerds\Ldap\Model\Ldap
  */
 class LdapClient implements LdapClientInterface
@@ -59,35 +60,12 @@ class LdapClient implements LdapClientInterface
         $this->logger = $logger;
     }
 
-    private function createLdapInstance()
-    {
-        if ($this->ldap === null) {
-            $this->ldap = new Zend_Ldap($this->configuration->getLdapConnectionOptions());
-        }
-    }
-
     /**
-     * @throws Zend_Ldap_Exception
-     */
-    public function bind()
-    {
-        $this->createLdapInstance();
-
-        $this->ldap->bind();
-    }
-
-    /**
-     * @param $username
-     *
-     * @throws LocalizedException
-     *
-     * @return Zend_Ldap_Collection
+     * {@inheritdoc}
      */
     public function getUserByUsername($username)
     {
-        if ($this->ldap === null) {
-            $this->bind();
-        }
+        $this->bind();
 
         $query = sprintf($this->configuration->getUserFilter(), $username);
 
@@ -100,16 +78,23 @@ class LdapClient implements LdapClientInterface
     }
 
     /**
-     * Try to establish a connection to the ldap server
-     *
-     * @return boolean true if ldap is connected otherwise false
+     * {@inheritdoc}
      */
-    public function canConnect()
+    public function bind()
+    {
+        if ($this->ldap === null) {
+            $this->ldap = new Zend_Ldap($this->configuration->getLdapConnectionOptions());
+            $this->ldap->bind();
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function canBind()
     {
         try {
-            $this->createLdapInstance();
-
-            $this->ldap->connect();
+            $this->bind();
         } catch (Zend_Ldap_Exception $e) {
             $this->logger->error($e);
             return false;

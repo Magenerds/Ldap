@@ -25,6 +25,7 @@ use Magento\User\Model\User;
 
 /**
  * Class UserMapper
+ *
  * @package Magenerds\Ldap\Model\Ldap
  */
 class UserMapper
@@ -48,7 +49,6 @@ class UserMapper
      * @param array $ldapAttributes
      * @param string $password
      * @param User $user
-     *
      * @return void
      */
     public function mapUser($ldapAttributes, $password, User $user)
@@ -74,10 +74,17 @@ class UserMapper
     }
 
     /**
-     *
+     * @param array $ldapAttributes
+     * @return string
+     */
+    private function getFirstName($ldapAttributes)
+    {
+        return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameFirstName());
+    }
+
+    /**
      * @param array $ldapAttributes
      * @param string $name
-     *
      * @return string
      */
     private function getFirstAttribute($ldapAttributes, $name)
@@ -87,27 +94,6 @@ class UserMapper
 
     /**
      * @param array $ldapAttributes
-     *
-     * @return string
-     */
-    private function getEmail($ldapAttributes)
-    {
-        return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameEmail());
-    }
-
-    /**
-     * @param array $ldapAttributes
-     *
-     * @return string
-     */
-    private function getUsername($ldapAttributes)
-    {
-        return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameUsername());
-    }
-
-    /**
-     * @param array $ldapAttributes
-     *
      * @return string
      */
     private function getLastName($ldapAttributes)
@@ -117,11 +103,19 @@ class UserMapper
 
     /**
      * @param array $ldapAttributes
-     *
      * @return string
      */
-    private function getFirstName($ldapAttributes)
+    private function getUsername($ldapAttributes)
     {
-        return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameFirstName());
+        return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameUsername());
+    }
+
+    /**
+     * @param array $ldapAttributes
+     * @return string
+     */
+    private function getEmail($ldapAttributes)
+    {
+        return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameEmail());
     }
 }

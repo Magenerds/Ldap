@@ -23,6 +23,7 @@ use Magento\Framework\Exception\LocalizedException;
 
 /**
  * Class PasswordValidator
+ *
  * @package Magenerds\Ldap\Model\Ldap
  */
 class PasswordValidator

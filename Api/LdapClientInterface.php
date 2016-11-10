@@ -23,11 +23,18 @@ use Zend_Ldap_Collection;
 
 /**
  * Interface LdapClientInterface
+ *
  * @package Magenerds\Ldap\Api
  */
 interface LdapClientInterface
 {
     /**
+     * @return Zend_Ldap_Collection
+     */
+    function bind();
+
+    /**
+     * Try to bind with the ldap server
      *
      * @return boolean true if ldap is connected otherwise false
      */

@@ -24,30 +24,21 @@ use Magenerds\Ldap\Model\Ldap\PasswordValidator;
 
 /**
  * Class PasswordCheckerTest
+ *
  * @package Magenerds\Ldap\Test\Model
  */
 class PasswordCheckerTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var PasswordValidator
-     */
-    private $passwordValidator;
-
     /**
      * Holds a mock of Configuration
      *
      * @var Configuration|\PHPUnit_Framework_MockObject_MockObject
      */
     protected $configuration;
-
-    protected function setUp()
-    {
-        $this->configuration = $this->getMockBuilder(Configuration::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $this->passwordValidator = new PasswordValidator($this->configuration);
-    }
+    /**
+     * @var PasswordValidator
+     */
+    private $passwordValidator;
 
     public function testSimple()
     {
@@ -102,5 +93,14 @@ class PasswordCheckerTest extends \PHPUnit_Framework_TestCase
     public function testUnsupportedHashFormat()
     {
         $this->passwordValidator->validatePassword('12345', '{NOT}12345');
+    }
+
+    protected function setUp()
+    {
+        $this->configuration = $this->getMockBuilder(Configuration::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->passwordValidator = new PasswordValidator($this->configuration);
     }
 }

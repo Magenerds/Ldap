@@ -23,6 +23,7 @@ use Magento\Backend\App\ConfigInterface;
 
 /**
  * Class Configuration
+ *
  * @package Magenerds\Ldap\Model\Ldap
  */
 class Configuration
@@ -56,78 +57,6 @@ class Configuration
     public function __construct(ConfigInterface $configure)
     {
         $this->configure = $configure;
-    }
-
-    /**
-     * @return string
-     */
-    public function getHost()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_HOST);
-    }
-
-    /**
-     * @return string
-     */
-    public function getPort()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_PORT);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUseSsl()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_USE_SSL);
-    }
-
-    /**
-     * @return string
-     */
-    public function getBindDn()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_DN);
-    }
-
-    /**
-     * @return string
-     */
-    public function getBindPassword()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_PASSWORD);
-    }
-
-    /**
-     * @return string
-     */
-    public function getBaseDn()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BASE_DN);
-    }
-
-    /**
-     * @return string
-     */
-    public function getUseStartTls()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_USE_TLS);
-    }
-
-    /**
-     * @return string
-     */
-    public function getAllowEmptyPassword()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_ALLOW_EMPTY_PASSWORD);
-    }
-
-    /**
-     * @return string
-     */
-    public function getBindRequiresDn()
-    {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_REQUIRES_DN);
     }
 
     /**
@@ -202,5 +131,77 @@ class Configuration
             'allowEmptyPassword' => $this->getAllowEmptyPassword(),
             'useStartTls' => $this->getUseStartTls(),
         );
+    }
+
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_HOST);
+    }
+
+    /**
+     * @return string
+     */
+    public function getPort()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_PORT);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUseSsl()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_USE_SSL);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBindDn()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_DN);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBindPassword()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_PASSWORD);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBindRequiresDn()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_REQUIRES_DN);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBaseDn()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_BASE_DN);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAllowEmptyPassword()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_ALLOW_EMPTY_PASSWORD);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUseStartTls()
+    {
+        return $this->configure->getValue(static::XML_PATH_SERVER_USE_TLS);
     }
 }
