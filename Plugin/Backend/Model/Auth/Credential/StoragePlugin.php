@@ -11,7 +11,6 @@
  * @category   Magenerds
  * @package    Magenerds_Ldap
  * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
- * @version    ${release.version}
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>

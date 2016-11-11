@@ -11,7 +11,6 @@
  * @category   Magenerds
  * @package    Magenerds_Ldap
  * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
- * @version    ${release.version}
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
@@ -48,15 +47,16 @@ class Configuration
     /**
      * @var ConfigInterface
      */
-    private $configure;
+    private $configuration;
 
     /**
      * Configuration constructor.
-     * @param ConfigInterface $configure
+     *
+     * @param ConfigInterface $configuration
      */
-    public function __construct(ConfigInterface $configure)
+    public function __construct(ConfigInterface $configuration)
     {
-        $this->configure = $configure;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -64,7 +64,7 @@ class Configuration
      */
     public function getUserFilter()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_USER_FILTER);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_USER_FILTER);
     }
 
     /**
@@ -72,7 +72,7 @@ class Configuration
      */
     public function getCachePassword()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_CACHE_PASSWORD);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_CACHE_PASSWORD);
     }
 
     /**
@@ -80,7 +80,7 @@ class Configuration
      */
     public function getAttributeNameUsername()
     {
-        return $this->configure->getValue(static::XML_PATH_ATTRIBUTE_USERNAME);
+        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_USERNAME);
     }
 
     /**
@@ -88,7 +88,7 @@ class Configuration
      */
     public function getAttributeNameFirstName()
     {
-        return $this->configure->getValue(static::XML_PATH_ATTRIBUTE_FIRST_NAME);
+        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_FIRST_NAME);
     }
 
     /**
@@ -96,7 +96,7 @@ class Configuration
      */
     public function getAttributeNameLastName()
     {
-        return $this->configure->getValue(static::XML_PATH_ATTRIBUTE_LAST_NAME);
+        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_LAST_NAME);
     }
 
     /**
@@ -104,7 +104,7 @@ class Configuration
      */
     public function getDefaultRoleId()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_ROLE);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_ROLE);
     }
 
     /**
@@ -112,7 +112,7 @@ class Configuration
      */
     public function getAttributeNameEmail()
     {
-        return $this->configure->getValue(static::XML_PATH_ATTRIBUTE_EMAIL);
+        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_EMAIL);
     }
 
     /**
@@ -138,7 +138,7 @@ class Configuration
      */
     public function getHost()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_HOST);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_HOST);
     }
 
     /**
@@ -146,7 +146,7 @@ class Configuration
      */
     public function getPort()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_PORT);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_PORT);
     }
 
     /**
@@ -154,7 +154,7 @@ class Configuration
      */
     public function getUseSsl()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_USE_SSL);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_USE_SSL);
     }
 
     /**
@@ -162,7 +162,7 @@ class Configuration
      */
     public function getBindDn()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_DN);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_BIND_DN);
     }
 
     /**
@@ -170,7 +170,7 @@ class Configuration
      */
     public function getBindPassword()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_PASSWORD);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_BIND_PASSWORD);
     }
 
     /**
@@ -178,7 +178,7 @@ class Configuration
      */
     public function getBindRequiresDn()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BIND_REQUIRES_DN);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_BIND_REQUIRES_DN);
     }
 
     /**
@@ -186,7 +186,7 @@ class Configuration
      */
     public function getBaseDn()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_BASE_DN);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_BASE_DN);
     }
 
     /**
@@ -194,7 +194,7 @@ class Configuration
      */
     public function getAllowEmptyPassword()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_ALLOW_EMPTY_PASSWORD);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_ALLOW_EMPTY_PASSWORD);
     }
 
     /**
@@ -202,6 +202,6 @@ class Configuration
      */
     public function getUseStartTls()
     {
-        return $this->configure->getValue(static::XML_PATH_SERVER_USE_TLS);
+        return $this->configuration->getValue(static::XML_PATH_SERVER_USE_TLS);
     }
 }

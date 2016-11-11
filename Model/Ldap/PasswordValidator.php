@@ -11,7 +11,6 @@
  * @category   Magenerds
  * @package    Magenerds_Ldap
  * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
- * @version    ${release.version}
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
@@ -44,8 +43,8 @@ class PasswordValidator
     }
 
     /**
-     * @param $password
-     * @param $hash
+     * @param string $password
+     * @param string $hash
      * @return bool
      * @throws LocalizedException
      */
@@ -57,7 +56,7 @@ class PasswordValidator
         }
 
         // plaintext password
-        if ($hash{0} != '{') {
+        if ($hash{0} !== '{') {
             return $password === $hash;
         }
 

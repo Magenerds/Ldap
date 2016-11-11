@@ -11,7 +11,6 @@
  * @category   Magenerds
  * @package    Magenerds_Ldap
  * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
- * @version    ${release.version}
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
@@ -43,7 +42,7 @@ interface LdapClientInterface
     /**
      * A global LDAP search routine for finding information of a user.
      *
-     * @param $username
+     * @param string $username
      *
      * @return Zend_Ldap_Collection
      */
