@@ -16,7 +16,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="magenerds_ldap" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0"
+        <section id="magenerds_ldap" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
                  showInStore="0">
             <label>Ldap</label>
             <tab>advanced</tab>
@@ -100,7 +100,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
-            <group id="attribute" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="0"
+            <group id="attribute" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0"
                    showInStore="0" canRestore="0">
                 <label>Attribute mapping</label>
                 <field id="username" translate="label comment" type="text" sortOrder="10" showInDefault="1"
