@@ -1,5 +1,5 @@
 {
-  "name": "m2hackathon/ldap",
+  "name": "magenerds/ldap",
   "description": "LDAP auth for Magento 2 backend login",
   "type": "magento2-module",
   "version": "0.1.0",
