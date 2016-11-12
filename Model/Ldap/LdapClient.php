@@ -22,7 +22,6 @@ use Magenerds\Ldap\Api\LdapClientInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
 use Zend_Ldap;
-use Zend_Ldap_Collection;
 use Zend_Ldap_Exception;
 
 /**

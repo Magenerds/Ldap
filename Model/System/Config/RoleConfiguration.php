@@ -15,7 +15,7 @@
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
-namespace Magenerds\Ldap\Model\Config;
+namespace Magenerds\Ldap\Model\System\Config;
 
 
 use Magento\Authorization\Model\Role;

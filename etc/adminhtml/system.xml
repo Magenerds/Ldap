@@ -82,16 +82,16 @@
                     <label>Allow empty password</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="role" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="0"
+                <field id="role" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="0"
                        showInStore="0" canRestore="1">
                     <label>Default Role</label>
-                    <source_model>Magenerds\Ldap\Model\Config\Role</source_model>
+                    <source_model>Magenerds\Ldap\System\Model\Config\RoleConfiguration</source_model>
                 </field>
                 <field id="user_filter" translate="label" type="text" sortOrder="120" showInDefault="1"
                        showInWebsite="0" showInStore="0" canRestore="1">
                     <label>User filter</label>
                 </field>
-                <field id="cache_password" translate="label comment" type="select" sortOrder="120" showInDefault="1"
+                <field id="cache_password" translate="label comment" type="select" sortOrder="130" showInDefault="1"
                        showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Cache user passwords</label>
                     <comment>
@@ -100,7 +100,7 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
-            <group id="attribute" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0"
+            <group id="attribute" translate="label" type="text" sortOrder="200" showInDefault="1" showInWebsite="0"
                    showInStore="0" canRestore="0">
                 <label>Attribute mapping</label>
                 <field id="username" translate="label comment" type="text" sortOrder="10" showInDefault="1"

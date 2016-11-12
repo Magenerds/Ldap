@@ -52,7 +52,7 @@ class PasswordValidator
     {
         // empty password
         if (empty($hash)) {
-            return $this->configuration->getAllowEmptyPassword() === '1';
+            return $this->configuration->getAllowEmptyPassword() === '1' && $password === $hash;
         }
 
         // plaintext password

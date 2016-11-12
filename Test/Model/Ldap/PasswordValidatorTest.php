@@ -15,7 +15,7 @@
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
-namespace Magenerds\Ldap\Test\Model;
+namespace Magenerds\Ldap\Test\Model\Ldap;
 
 
 use Magenerds\Ldap\Model\Ldap\Configuration;
