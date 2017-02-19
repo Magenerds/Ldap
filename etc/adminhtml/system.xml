@@ -16,10 +16,13 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
+        <tab id="Magenerds" translate="label" sortOrder="1000">
+            <label>Magenerds</label>
+        </tab>
         <section id="magenerds_ldap" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
                  showInStore="0">
             <label>Ldap</label>
-            <tab>advanced</tab>
+            <tab>Magenerds</tab>
             <resource>Magenerds_Ldap::config</resource>
             <group id="server" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
                    showInStore="0" canRestore="0">
@@ -85,7 +88,7 @@
                 <field id="role" translate="label" type="select" sortOrder="110" showInDefault="1" showInWebsite="0"
                        showInStore="0" canRestore="1">
                     <label>Default Role</label>
-                    <source_model>Magenerds\Ldap\System\Model\Config\RoleConfiguration</source_model>
+                    <source_model>Magenerds\Ldap\Model\System\Config\RoleConfiguration</source_model>
                 </field>
                 <field id="user_filter" translate="label" type="text" sortOrder="120" showInDefault="1"
                        showInWebsite="0" showInStore="0" canRestore="1">
