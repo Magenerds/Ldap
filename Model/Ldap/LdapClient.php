@@ -18,6 +18,7 @@
 namespace Magenerds\Ldap\Model\Ldap;
 
 
+use Exception;
 use Magenerds\Ldap\Api\LdapClientInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Psr\Log\LoggerInterface;
@@ -69,8 +70,8 @@ class LdapClient implements LdapClientInterface
 
         try {
             return $this->ldap->search($query, null, Zend_Ldap::SEARCH_SCOPE_ONE);
-        } catch (Zend_Ldap_Exception $e) {
-            $this->logger->error($e);
+        } catch (Exception $e) {
+            $this->logger->error($e->getMessage());
             throw new LocalizedException(__('Login temporary deactivated. Check your logs for more Information.'));
         }
     }
@@ -94,7 +95,7 @@ class LdapClient implements LdapClientInterface
         try {
             $this->bind();
         } catch (Zend_Ldap_Exception $e) {
-            $this->logger->error($e);
+            $this->logger->error($e->getMessage());
             return false;
         }
 
