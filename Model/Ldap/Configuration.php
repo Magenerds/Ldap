@@ -10,53 +10,37 @@
 /**
  * @category   Magenerds
  * @package    Magenerds_Ldap
- * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
 namespace Magenerds\Ldap\Model\Ldap;
 
-
-use Magento\Backend\App\ConfigInterface;
+use Magenerds\Ldap\Api\ConfigInterface;
+use Magento\Framework\App\DeploymentConfig;
 
 /**
  * Class Configuration
  *
  * @package Magenerds\Ldap\Model\Ldap
  */
-class Configuration
+class Configuration implements ConfigInterface
 {
-    const XML_PATH_SERVER_HOST = 'magenerds_ldap/server/host';
-    const XML_PATH_SERVER_PORT = 'magenerds_ldap/server/port';
-    const XML_PATH_SERVER_USE_TLS = 'magenerds_ldap/server/use_tls';
-    const XML_PATH_SERVER_USE_SSL = 'magenerds_ldap/server/use_ssl';
-    const XML_PATH_SERVER_BIND_REQUIRES_DN = 'magenerds_ldap/server/bind_requires_dn';
-    const XML_PATH_SERVER_BASE_DN = 'magenerds_ldap/server/base_dn';
-    const XML_PATH_SERVER_BIND_DN = 'magenerds_ldap/server/bind_dn';
-    const XML_PATH_SERVER_BIND_PASSWORD = 'magenerds_ldap/server/bind_password'; //NOSONAR
-    const XML_PATH_SERVER_ALLOW_EMPTY_PASSWORD = 'magenerds_ldap/server/allow_empty_password'; //NOSONAR
-    const XML_PATH_SERVER_CACHE_PASSWORD = 'magenerds_ldap/server/cache_password'; //NOSONAR
-    const XML_PATH_SERVER_ROLE = 'magenerds_ldap/server/role';
-    const XML_PATH_SERVER_USER_FILTER = 'magenerds_ldap/server/user_filter';
-    const XML_PATH_ATTRIBUTE_USERNAME = 'magenerds_ldap/attribute/username';
-    const XML_PATH_ATTRIBUTE_FIRST_NAME = 'magenerds_ldap/attribute/first_name';
-    const XML_PATH_ATTRIBUTE_LAST_NAME = 'magenerds_ldap/attribute/last_name';
-    const XML_PATH_ATTRIBUTE_EMAIL = 'magenerds_ldap/attribute/email';
-
     /**
-     * @var ConfigInterface
+     * @var DeploymentConfig
      */
-    private $configuration;
+    private $deploymentConfig;
 
     /**
      * Configuration constructor.
-     *
-     * @param ConfigInterface $configuration
+     * @param DeploymentConfig $deploymentConfig
      */
-    public function __construct(ConfigInterface $configuration)
+    public function __construct(
+        DeploymentConfig $deploymentConfig
+    )
     {
-        $this->configuration = $configuration;
+        $this->deploymentConfig = $deploymentConfig;
     }
 
     /**
@@ -64,7 +48,11 @@ class Configuration
      */
     public function getUserFilter()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_USER_FILTER);
+
+        return $this->deploymentConfig->get(
+            ConfigInterface::CONFIG_KEY_USER_FILTER,
+            ConfigInterface::DEFAULT_USER_FILTER
+        );
     }
 
     /**
@@ -72,7 +60,7 @@ class Configuration
      */
     public function getCachePassword()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_CACHE_PASSWORD);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_CACHE_PASSWORD);
     }
 
     /**
@@ -80,7 +68,10 @@ class Configuration
      */
     public function getAttributeNameUsername()
     {
-        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_USERNAME);
+        return $this->deploymentConfig->get(
+            ConfigInterface::CONFIG_KEY_ATTRIBUTE_USERNAME,
+            ConfigInterface::DEFAULT_ATTRIBUTE_USERNAME
+        );
     }
 
     /**
@@ -88,7 +79,10 @@ class Configuration
      */
     public function getAttributeNameFirstName()
     {
-        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_FIRST_NAME);
+        return $this->deploymentConfig->get(
+            ConfigInterface::CONFIG_KEY_ATTRIBUTE_FIRST_NAME,
+            ConfigInterface::DEFAULT_ATTRIBUTE_FIRST_NAME
+        );
     }
 
     /**
@@ -96,7 +90,10 @@ class Configuration
      */
     public function getAttributeNameLastName()
     {
-        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_LAST_NAME);
+        return $this->deploymentConfig->get(
+            ConfigInterface::CONFIG_KEY_ATTRIBUTE_LAST_NAME,
+            ConfigInterface::DEFAULT_ATTRIBUTE_LAST_NAME
+        );
     }
 
     /**
@@ -104,7 +101,7 @@ class Configuration
      */
     public function getDefaultRoleId()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_ROLE);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_ROLE);
     }
 
     /**
@@ -112,7 +109,10 @@ class Configuration
      */
     public function getAttributeNameEmail()
     {
-        return $this->configuration->getValue(static::XML_PATH_ATTRIBUTE_EMAIL);
+        return $this->deploymentConfig->get(
+            ConfigInterface::CONFIG_KEY_ATTRIBUTE_EMAIL,
+            ConfigInterface::DEFAULT_ATTRIBUTE_EMAIL
+        );
     }
 
     /**
@@ -138,7 +138,7 @@ class Configuration
      */
     public function getHost()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_HOST);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_HOST);
     }
 
     /**
@@ -146,7 +146,10 @@ class Configuration
      */
     public function getPort()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_PORT);
+        return $this->deploymentConfig->get(
+            ConfigInterface::CONFIG_KEY_PORT,
+            ConfigInterface::DEFAULT_PORT
+        );
     }
 
     /**
@@ -154,7 +157,7 @@ class Configuration
      */
     public function getUseSsl()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_USE_SSL);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_USE_SSL);
     }
 
     /**
@@ -162,7 +165,7 @@ class Configuration
      */
     public function getBindDn()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_BIND_DN);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_BIND_DN);
     }
 
     /**
@@ -170,7 +173,7 @@ class Configuration
      */
     public function getBindPassword()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_BIND_PASSWORD);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_BIND_PASSWORD);
     }
 
     /**
@@ -178,7 +181,7 @@ class Configuration
      */
     public function getBindRequiresDn()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_BIND_REQUIRES_DN);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_BIND_REQUIRES_DN);
     }
 
     /**
@@ -186,7 +189,7 @@ class Configuration
      */
     public function getBaseDn()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_BASE_DN);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_BASE_DN);
     }
 
     /**
@@ -194,7 +197,7 @@ class Configuration
      */
     public function getAllowEmptyPassword()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_ALLOW_EMPTY_PASSWORD);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_ALLOW_EMPTY_PASSWORD);
     }
 
     /**
@@ -202,6 +205,6 @@ class Configuration
      */
     public function getUseStartTls()
     {
-        return $this->configuration->getValue(static::XML_PATH_SERVER_USE_TLS);
+        return $this->deploymentConfig->get(ConfigInterface::CONFIG_KEY_USE_TLS);
     }
 }

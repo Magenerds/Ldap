@@ -10,16 +10,13 @@
 /**
  * @category   Magenerds
  * @package    Magenerds_Ldap
- * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
 namespace Magenerds\Ldap\Model\Ldap;
 
-
-use Magento\Authorization\Model\Role;
-use Magento\Authorization\Model\RoleFactory;
 use Magento\User\Model\User;
 
 /**
@@ -57,12 +54,14 @@ class UserMapper
         $user->setUserName($this->getUsername($ldapAttributes));
         $user->setEmail($this->getEmail($ldapAttributes));
 
+        /** @noinspection PhpUndefinedMethodInspection */
         $user->setLdapDn($ldapAttributes['dn']);
 
         if ($user->isObjectNew()) {
             $user->setIsActive(1);
         }
 
+        /** @noinspection PhpUndefinedMethodInspection */
         $user->setRoleId($this->configuration->getDefaultRoleId());
 
         if ($this->configuration->getCachePassword()) {

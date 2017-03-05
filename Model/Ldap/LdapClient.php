@@ -10,13 +10,12 @@
 /**
  * @category   Magenerds
  * @package    Magenerds_Ldap
- * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
 namespace Magenerds\Ldap\Model\Ldap;
-
 
 use Exception;
 use Magenerds\Ldap\Api\LdapClientInterface;
@@ -66,7 +65,12 @@ class LdapClient implements LdapClientInterface
     {
         $this->bind();
 
-        $query = sprintf($this->configuration->getUserFilter(), $username);
+        $params = [
+            ':username' => $username,
+            ':usernameAttribute' => $this->configuration->getAttributeNameUsername()
+        ];
+
+        $query = strtr($this->configuration->getUserFilter(), $params);
 
         try {
             return $this->ldap->search($query, null, Zend_Ldap::SEARCH_SCOPE_ONE);

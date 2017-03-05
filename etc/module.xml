@@ -8,14 +8,14 @@
  ~
  ~ @category   Magenerds
  ~ @package    Magenerds_Ldap
- ~ @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ ~ @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
  ~ @link       http://www.techdivision.com/
  ~ @link       https://github.com/Magenerds/Ldap
  ~ @author     Julian Schlarb <j.schlarb@techdivision.com>
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Magenerds_Ldap" setup_version="0.1.0">
+    <module name="Magenerds_Ldap" setup_version="2.0.0">
         <sequence>
             <module name="Magento_Backend"/>
             <module name="Magento_User"/>
