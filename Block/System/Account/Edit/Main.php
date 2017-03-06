@@ -7,6 +7,10 @@
  * http://opensource.org/licenses/osl-3.0.php
  */
 
+namespace Magenerds\Ldap\Block\System\Account\Edit;
+
+use Magento\Framework\Data\Form\Element\AbstractElement;
+
 /**
  * @category   Magenerds
  * @package    Magenerds_Ldap
@@ -15,10 +19,6 @@
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
-namespace Magenerds\Ldap\Block\System\Account\Edit;
-
-use Magento\Framework\Data\Form\Element\AbstractElement;
-
 class Main extends \Magento\User\Block\User\Edit\Tab\Main
 {
 
