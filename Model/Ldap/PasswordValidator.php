@@ -10,13 +10,12 @@
 /**
  * @category   Magenerds
  * @package    Magenerds_Ldap
- * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
 namespace Magenerds\Ldap\Model\Ldap;
-
 
 use Magento\Framework\Exception\LocalizedException;
 

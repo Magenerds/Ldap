@@ -10,13 +10,12 @@
 /**
  * @category   Magenerds
  * @package    Magenerds_Ldap
- * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
 namespace Magenerds\Ldap\Plugin\User\Model;
-
 
 use Closure;
 use Magento\User\Model\User;
@@ -38,6 +37,7 @@ final class UserPlugin
     public function aroundValidateBeforeSave(User $subject, Closure $proceed)
     {
         // only validate non ldap users
+        /** @noinspection PhpUndefinedMethodInspection */
         if (strlen(trim($subject->getLdapDn())) === 0) {
             return $proceed();
         }

@@ -10,13 +10,12 @@
 /**
  * @category   Magenerds
  * @package    Magenerds_Ldap
- * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
  * @link       http://www.techdivision.com/
  * @link       https://github.com/Magenerds/Ldap
  * @author     Julian Schlarb <j.schlarb@techdivision.com>
  */
 namespace Magenerds\Ldap\Plugin\Backend\Model\Auth\Credential;
-
 
 use Closure;
 use Magenerds\Ldap\Api\LdapClientInterface;
@@ -83,7 +82,8 @@ final class StoragePlugin
         ManagerInterface $eventManager,
         PasswordValidator $passwordValidator,
         \Magento\User\Model\ResourceModel\User $userResource
-    ) {
+    )
+    {
         $this->ldapClient = $ldapClient;
         $this->eventManager = $eventManager;
         $this->passwordValidator = $passwordValidator;
@@ -132,7 +132,7 @@ final class StoragePlugin
                     return $proceed($username, $password);
                 }
 
-                throw new LocalizedException(__('Login temporary deactivated. Check your logs for more Information'));
+                throw new LocalizedException(__('Login temporarily deactivated. Check your logs for more Information.'));
             }
 
             $ldapAttributes = $this->ldapClient->getUserByUsername($username)->current();
@@ -164,6 +164,8 @@ final class StoragePlugin
     }
 
     /**
+     * Check if user is active and has any assigned role
+     *
      * @param User $user
      * @throws AuthenticationException
      * @return void
