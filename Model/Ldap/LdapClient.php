@@ -76,7 +76,7 @@ class LdapClient implements LdapClientInterface
             return $this->ldap->search($query, null, Zend_Ldap::SEARCH_SCOPE_ONE);
         } catch (Exception $e) {
             $this->logger->error($e->getMessage());
-            throw new LocalizedException(__('Login temporary deactivated. Check your logs for more Information.'));
+            throw new LocalizedException(__('Login temporarily deactivated. Check your logs for more Information.'));
         }
     }
 

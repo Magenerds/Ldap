@@ -132,7 +132,7 @@ final class StoragePlugin
                     return $proceed($username, $password);
                 }
 
-                throw new LocalizedException(__('Login temporary deactivated. Check your logs for more Information.'));
+                throw new LocalizedException(__('Login temporarily deactivated. Check your logs for more Information.'));
             }
 
             $ldapAttributes = $this->ldapClient->getUserByUsername($username)->current();

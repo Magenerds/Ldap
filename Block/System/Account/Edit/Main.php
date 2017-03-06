@@ -29,7 +29,6 @@ class Main extends \Magento\User\Block\User\Edit\Tab\Main
     {
         $result = parent::_prepareForm();
 
-
         /** @var $model \Magento\User\Model\User */
         $model = $this->_coreRegistry->registry('permissions_user');
 
@@ -44,7 +43,6 @@ class Main extends \Magento\User\Block\User\Edit\Tab\Main
         /** @var AbstractElement[] $field */
         $fields = $result->getForm()->getElements();
 
-
         foreach ($fields as $field) {
             /** @var AbstractElement $element */
             foreach ($field->getElements() as $element) {
@@ -53,7 +51,6 @@ class Main extends \Magento\User\Block\User\Edit\Tab\Main
                 }
             }
         }
-
 
         return $result;
     }

@@ -19,7 +19,6 @@ Alternatively, you can simply run the following from the command line:
 composer require magenerds/ldap "~2.0"
 ```
 
-magento module:disable Magento_Weee
 ## Configuration
 There are several ways to configure the ldap module for your instance and your 
 environment. You can use Magento's `setup:config:set` command and/or set the options
@@ -40,7 +39,7 @@ for `setup:config:set` and `setup:install`
      --ldap-bind-password         The password corresponding to the username above, but this may be omitted if the LDAP server permits an anonymous binding to query user accounts.
      --ldap-allow-empty-password  Allow empty password
      --ldap-cache-password        To save the user password in the Magento database. Then, users will be able to log in even when the LDAP server is not reachable.
-     --ldap-role                  Role that assigned to a user on first login
+     --ldap-role                  Role that is assigned
      --ldap-user-filter           Ldap search filter. Placeholders are ":usernameAttribute" and ":username". (default: "(&(objectClass=*)(:usernameAttribute=:username))")
      --ldap-attribute-username    Attribute in LDAP defining the user’s username. (default: "uid")
      --ldap-attribute-first-name  Attribute in LDAP defining the user’s first name. (default: "givenname")

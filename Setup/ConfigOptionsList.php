@@ -8,7 +8,6 @@
  */
 
 /**
- * @category   Magenerds
  * @package    Magenerds_Smtp
  * @subpackage Setup
  * @copyright  Copyright (c) 2017 TechDivision GmbH (http://www.techdivision.com)
@@ -32,7 +31,7 @@ use Magento\Framework\Setup\Option\TextConfigOption;
 
 /**
  * Class ConfigOptionsList
- * @package Magenerds\Smtp\Setup
+ * @category   Magenerds
  */
 class ConfigOptionsList implements ConfigOptionsListInterface
 {
@@ -236,7 +235,6 @@ class ConfigOptionsList implements ConfigOptionsListInterface
             }
         }
 
-
         foreach ($flagConfig as $inputKey => $configKey) {
             if (isset($options[$inputKey])) {
                 $configData->set(
@@ -249,6 +247,11 @@ class ConfigOptionsList implements ConfigOptionsListInterface
         return [$configData];
     }
 
+    /**
+     * Returns a list of role names
+     *
+     * @return string[]
+     */
     protected function getRoleNames()
     {
         $roles = $this->role->getCollection();
@@ -264,8 +267,10 @@ class ConfigOptionsList implements ConfigOptionsListInterface
     }
 
     /**
-     * @param $roleName
-     * @return mixed
+     * Returns the role id for a given name
+     *
+     * @param string $roleName
+     * @return integer
      */
     protected function getRoleIdByName($roleName)
     {

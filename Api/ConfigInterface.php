@@ -54,85 +54,122 @@ interface ConfigInterface
     const DEFAULT_ATTRIBUTE_LAST_NAME = 'sn';
     const DEFAULT_ATTRIBUTE_EMAIL = 'mail';
 
+    /**
+     * Returns the LDAP user filter
+     *
+     * @return string
+     */
     function getUserFilter();
 
     /**
-     * @return string
+     * Returns true if it's allowed to cache the users password otherwise false
+     *
+     * @return boolean
      */
     function getCachePassword();
 
     /**
+     * Returns the attribute key in LDAP defining the user’s username.
+     *
      * @return string
      */
     function getAttributeNameUsername();
 
     /**
+     * Returns the attribute key in LDAP defining the user’s first name.
+     *
      * @return string
      */
     function getAttributeNameFirstName();
 
     /**
+     * Returns the attribute key in LDAP defining the user’s last name.
+     *
      * @return string
      */
     function getAttributeNameLastName();
 
     /**
-     * @return string
+     * Returns the technical role id
+     *
+     * @return integer
      */
     function getDefaultRoleId();
 
     /**
+     * Returns the attribute key in LDAP defining the user’s email.
+     *
      * @return string
      */
     function getAttributeNameEmail();
 
     /**
+     * Returns an prepared array for the ldap connector
+     *
      * @return array
      */
     function getLdapConnectionOptions();
 
     /**
+     * Returns the ldap host
+     *
      * @return string
      */
     function getHost();
 
     /**
+     * Returns the ldap port
+     *
      * @return string
      */
     function getPort();
 
     /**
-     * @return string
+     * Returns true if the ldap connection must be establish via ldaps
+     *
+     * @return boolean
      */
     function getUseSsl();
 
     /**
+     * Returns the bind dn
+     *
      * @return string
      */
     function getBindDn();
 
     /**
+     * Returns the bind password
+     *
      * @return string
      */
     function getBindPassword();
 
     /**
-     * @return string
+     * Returns true if bind is required
+     *
+     * @return boolean
      */
     function getBindRequiresDn();
 
     /**
+     * Returns the base dn where
+     *
      * @return string
      */
     function getBaseDn();
 
     /**
-     * @return string
+     * Returns true if empty passwords are allowed
+     *
+     * @return boolean
      */
     function getAllowEmptyPassword();
 
     /**
-     * @return string
+     * Returns true if a connection must use start tls
+     *
+     * @return boolean
      */
     function getUseStartTls();
 }

@@ -44,7 +44,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getUserFilter()
     {
@@ -56,7 +56,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getCachePassword()
     {
@@ -64,7 +64,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getAttributeNameUsername()
     {
@@ -75,7 +75,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getAttributeNameFirstName()
     {
@@ -86,7 +86,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getAttributeNameLastName()
     {
@@ -97,7 +97,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getDefaultRoleId()
     {
@@ -105,7 +105,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getAttributeNameEmail()
     {
@@ -116,7 +116,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getLdapConnectionOptions()
     {
@@ -134,7 +134,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getHost()
     {
@@ -142,7 +142,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getPort()
     {
@@ -153,7 +153,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getUseSsl()
     {
@@ -161,7 +161,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getBindDn()
     {
@@ -169,7 +169,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getBindPassword()
     {
@@ -177,7 +177,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getBindRequiresDn()
     {
@@ -185,7 +185,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getBaseDn()
     {
@@ -193,7 +193,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getAllowEmptyPassword()
     {
@@ -201,7 +201,7 @@ class Configuration implements ConfigInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getUseStartTls()
     {
