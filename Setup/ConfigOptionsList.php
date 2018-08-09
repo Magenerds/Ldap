@@ -54,6 +54,7 @@ class ConfigOptionsList implements ConfigOptionsListInterface
     const INPUT_KEY_ATTRIBUTE_FIRST_NAME = 'ldap-attribute-first-name';
     const INPUT_KEY_ATTRIBUTE_LAST_NAME = 'ldap-attribute-last-name';
     const INPUT_KEY_ATTRIBUTE_EMAIL = 'ldap-attribute-email';
+    const INPUT_KEY_ATTRIBUTE_ROLE = 'ldap-attribute-role';
 
     /**
      * @var Role
@@ -209,6 +210,7 @@ class ConfigOptionsList implements ConfigOptionsListInterface
             ConfigOptionsList::INPUT_KEY_ATTRIBUTE_FIRST_NAME => ConfigInterface::CONFIG_KEY_ATTRIBUTE_FIRST_NAME,
             ConfigOptionsList::INPUT_KEY_ATTRIBUTE_LAST_NAME => ConfigInterface::CONFIG_KEY_ATTRIBUTE_LAST_NAME,
             ConfigOptionsList::INPUT_KEY_ATTRIBUTE_EMAIL => ConfigInterface::CONFIG_KEY_ATTRIBUTE_EMAIL,
+            ConfigOptionsList::INPUT_KEY_ATTRIBUTE_ROLE => ConfigInterface::CONFIG_KEY_ATTRIBUTE_ROLE,
         ];
 
         $flagConfig = [
