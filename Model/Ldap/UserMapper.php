@@ -64,7 +64,16 @@ class UserMapper
         /** @noinspection PhpUndefinedMethodInspection */
 	// TODO: Add check here of role, switching to user-
 	// specific role instead of default role
-        $user->setRoleId($this->configuration->getDefaultRoleId());
+
+	// Example logic - written but not tested
+        $role = $this->getRole($ldapAttributes);
+
+	if(is_null($overrideRole) {
+	        $role = $this->configuration->getDefaultRoleId();
+	}
+
+        $user->setRoleId($role);
+	// end example logic
 
         if ($this->configuration->getCachePassword()) {
             $user->setPassword($password);
@@ -117,5 +126,14 @@ class UserMapper
     private function getEmail($ldapAttributes)
     {
         return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameEmail());
+    }
+
+    /**
+     * @param array $ldapAttributes
+     * @return string
+     */
+    private function getRole($ldapAttributes)
+    {
+        return $this->getFirstAttribute($ldapAttributes, $this->configuration->getAttributeNameRole());
     }
 }
