@@ -62,6 +62,8 @@ class UserMapper
         }
 
         /** @noinspection PhpUndefinedMethodInspection */
+	// TODO: Add check here of role, switching to user-
+	// specific role instead of default role
         $user->setRoleId($this->configuration->getDefaultRoleId());
 
         if ($this->configuration->getCachePassword()) {

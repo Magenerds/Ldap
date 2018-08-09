@@ -38,6 +38,7 @@ interface ConfigInterface
     const CONFIG_KEY_ATTRIBUTE_FIRST_NAME = 'ldap/attribute/first-name';
     const CONFIG_KEY_ATTRIBUTE_LAST_NAME = 'ldap/attribute/last-name';
     const CONFIG_KEY_ATTRIBUTE_EMAIL = 'ldap/attribute/email';
+    const CONFIG_KEY_ATTRIBUTE_ROLE = 'ldap/attribute/role';
 
     /**
      * default values
@@ -102,6 +103,14 @@ interface ConfigInterface
      * @return string
      */
     function getAttributeNameEmail();
+
+    /**
+     * Returns the attribute key in LDAP defining the user’s role,
+     * otherwise returns the default role specified in the role key.
+     *
+     * @return string
+     */
+    function getAttributeNameRole();
 
     /**
      * Returns an prepared array for the ldap connector
