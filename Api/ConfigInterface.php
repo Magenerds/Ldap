@@ -54,6 +54,7 @@ interface ConfigInterface
     const DEFAULT_ATTRIBUTE_FIRST_NAME = 'givenname';
     const DEFAULT_ATTRIBUTE_LAST_NAME = 'sn';
     const DEFAULT_ATTRIBUTE_EMAIL = 'mail';
+    const DEFAULT_ATTRIBUTE_ROLE = 'null';
 
     /**
      * Returns the LDAP user filter
