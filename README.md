@@ -45,6 +45,7 @@ for `setup:config:set` and `setup:install`
      --ldap-attribute-first-name  Attribute in LDAP defining the user’s first name. (default: "givenname")
      --ldap-attribute-last-name   Attribute in LDAP defining the user’s last name. (default: "sn")
      --ldap-attribute-email       Attribute in LDAP defining the user’s email. (default: "mail")
+     --ldap-attribute-role        Attribute in LDAP defining the Magento role. (default: role specified in --ldap-role")
 
 ```
 
@@ -82,6 +83,7 @@ Example for memberOf
         'first-name' => 'givenname',
         'last-name' => 'sn',
         'email' => 'mail',
+        'role' => 'magerole',
     ),
     'allow-empty-password' => false,
     'cache-password' => false,
