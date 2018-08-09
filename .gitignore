@@ -70,3 +70,5 @@ composer.lock
 # Magento2 sources
 /dist
 /bin
+
+.*.swp
