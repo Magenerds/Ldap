@@ -184,6 +184,18 @@ class ConfigOptionsList implements ConfigOptionsListInterface
                 'Attribute in LDAP defining the user’s email.',
                 ConfigInterface::DEFAULT_ATTRIBUTE_EMAIL
             ),
+
+            // TODO: Work on this and test this - current example is untested
+            /*
+            new TextConfigOption(
+                ConfigOptionsList::INPUT_KEY_ATTRIBUTE_ROLE,
+                TextConfigOption::FRONTEND_WIZARD_TEXT,
+                ConfigInterface::CONFIG_KEY_ATTRIBUTE_ROLE,
+                'Attribute in LDAP defining the user’s role.',
+                ConfigInterface::DEFAULT_ATTRIBUTE_ROLE
+            ),
+            */
+
         ];
     }
 
