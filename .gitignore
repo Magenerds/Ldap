@@ -71,4 +71,5 @@ composer.lock
 /dist
 /bin
 
+# Ignore nano text editor temp files
 .*.swp
