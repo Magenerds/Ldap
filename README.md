@@ -39,7 +39,7 @@ for `setup:config:set` and `setup:install`
      --ldap-bind-password         The password corresponding to the username above, but this may be omitted if the LDAP server permits an anonymous binding to query user accounts.
      --ldap-allow-empty-password  Allow empty password
      --ldap-cache-password        To save the user password in the Magento database. Then, users will be able to log in even when the LDAP server is not reachable.
-     --ldap-role                  Role that is assigned
+     --ldap-role                  Role that is assigned by default if the LDAP attribute is not set or not set to a valid role name
      --ldap-user-filter           Ldap search filter. Placeholders are ":usernameAttribute" and ":username". (default: "(&(objectClass=*)(:usernameAttribute=:username))")
      --ldap-attribute-username    Attribute in LDAP defining the user’s username. (default: "uid")
      --ldap-attribute-first-name  Attribute in LDAP defining the user’s first name. (default: "givenname")
