@@ -118,6 +118,17 @@ class Configuration implements ConfigInterface
     /**
      * {@inheritdoc}
      */
+    public function getAttributeNameRole()
+    {
+        return $this->deploymentConfig->get(
+            ConfigInterface::CONFIG_KEY_ATTRIBUTE_ROLE,
+            ConfigInterface::DEFAULT_ATTRIBUTE_ROLE
+        );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getLdapConnectionOptions()
     {
         return array(

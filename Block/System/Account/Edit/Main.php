@@ -38,6 +38,8 @@ class Main extends \Magento\User\Block\User\Edit\Tab\Main
             return $result;
         }
 
+	// TODO: does the role need to be disabled here? Perhaps only disable the role if specified
+	// in ldap (aka - role var is not null?). Dig into this before merge
         $fieldsToDisable = ['username', 'firstname', 'lastname', 'email', 'password', 'password_confirmation'];
 
         /** @var AbstractElement[] $field */

@@ -70,3 +70,6 @@ composer.lock
 # Magento2 sources
 /dist
 /bin
+
+# Ignore nano text editor temp files
+.*.swp
